@@ -88,7 +88,7 @@
                         <div class="card text-dark bg-warning">
                             <div class="card-body">
                                 <i class="fas fa-tags fa-2x"></i>
-                                <h5 class="card-title">Nombre de Tags</h5>
+                                <h5 class="card-title">Nombre des Newsletter </h5>
                                 <p class="card-text"></p>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                         <div class="card text-dark bg-warning">
                             <div class="card-body">
                                 <i class="fas fa-folder fa-2x"></i>
-                                <h5 class="card-title">Nombre de Catégories</h5>
+                                <h5 class="card-title">Nombre de Client</h5>
                                 <p class="card-text"></p>
 
                             </div>
