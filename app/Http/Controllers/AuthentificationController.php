@@ -2,30 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Authentification;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator; // Import the Validator class
-use Illuminate\Support\Facades\Hash; // Import the Hash class
-use App\Models\User; // Import the User model
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use App\Models\User;
+use Illuminate\Validation\ValidationException;
 
 class AuthentificationController extends Controller
 {
-    public function pageregister(){
+    public function pageregister()
+    {
         return view('register');
     }
 
-    public function pagelogin(){
-        return view('login');
-    }
-
-    public function create()
+    public function pagelogin()
     {
-        // Your create method logic here
+        return view('login');
     }
 
     public function registerSave(Request $request)
     {
-        // Validate the incoming request data
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
@@ -39,13 +36,28 @@ class AuthentificationController extends Controller
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->idRole = 2; 
+        $user->idRole = 2;
         $user->password = Hash::make($request->password);
         $user->save();
 
         return redirect()->route('login.page');
     }
 
+    public function loginAction(Request $request)
+    {
+        Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required'
+        ])->validate();
+
+        if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
+            throw ValidationException::withMessages([
+                'email' => trans('auth.failed')
+            ]);
+        }
+        $request->session()->regenerate();
+        return redirect()->route('dashebord');
+    }
 
     public function show(string $id)
     {
