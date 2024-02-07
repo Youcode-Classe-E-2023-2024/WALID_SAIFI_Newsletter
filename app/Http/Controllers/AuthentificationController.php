@@ -32,21 +32,20 @@ class AuthentificationController extends Controller
             'password' => 'required'
         ]);
 
-        // If validation fails, redirect back with errors
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        // Create a new user using the User model
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password)
-        ]);
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->idRole = 2; 
+        $user->password = Hash::make($request->password);
+        $user->save();
 
-        // Redirect to the login page after successful registration
         return redirect()->route('login.page');
     }
+
 
     public function show(string $id)
     {
