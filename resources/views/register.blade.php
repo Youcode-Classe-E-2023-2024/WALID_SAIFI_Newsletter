@@ -13,6 +13,7 @@
 </head>
 <body>
 
+
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-4">
@@ -21,17 +22,9 @@
                     <h2 class="mb-0">Register</h2>
                 </div>
                 <div class="card-body">
-                    <form>
-                        <div class="form-group mb-3">
-                            <label for="prenom">Prénom:</label>
-                            <input type="text" name="prenom" class="form-control" id="prenom" placeholder="Enter votre Prénom"  onsubmit="return validateForm()">
-                        </div>
-                        <span id="First_err" class="text-danger small"></span>
+                    <form action="{{route('add.registre')}}" method="post">
 
-                        <div class="form-group mb-3">
-                            <label for="nom">Nom:</label>
-                            <input type="text" name="nom" class="form-control" id="nom" placeholder="Enter votre Nom">
-                        </div>
+
 
                         <span id="last_err" class="text-danger small"></span>
 
@@ -47,11 +40,13 @@
                         </div>
                         <span id="password_err" class="text-danger small"></span>
 
-                        <button type="button" id="signup" name="signup" class="btn btn-primary btn-block">Register</button>
+                        <button type="submit" id="signup" name="signup" class="btn btn-primary btn-block">Register</button>
                     </form>
                 </div>
                 <div class="card-footer text-center">
-                    <p class="mb-0">Already have an account? <a href="" class="text-primary">Login</a></p>
+
+                    <p class="mb-0">Already have an account? <a href="{{route('login.page')}}" class="text-primary">Login</a></p>
+
                 </div>
             </div>
         </div>
