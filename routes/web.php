@@ -13,15 +13,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/dashebord', function () {
     return view('dashebord');
 });
-
-
 
 Route::get('/register',[AuthentificationController::class, 'pageregister']);
 Route::post('/',[AuthentificationController::class, 'registerSave'])->name('register.save');
