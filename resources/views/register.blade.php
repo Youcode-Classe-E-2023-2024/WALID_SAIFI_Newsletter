@@ -27,18 +27,26 @@
 
 
                         <span id="last_err" class="text-danger small"></span>
+                        <div class="form-group mb-3">
+                            <label for="email">Username:</label>
+                            <input type="text" name="name" class="form-control" id="email" placeholder="Enter votre username">
+                        </div>
+                        @error('name')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
 
                         <div class="form-group mb-3">
                             <label for="email">Email:</label>
                             <input type="email" name="email" class="form-control" id="email" placeholder="Enter votre email">
                         </div>
-                        <span id="email_err" class="text-danger small"></span>
-
+                        @error('email')
+                        <span class="text-danger small">{{ $message }}</span>
+                         @enderror
                         <div class="form-group mb-3">
                             <label for="password">Password:</label>
                             <input type="password" name="password" class="form-control" id="password" placeholder="Enter votre password">
                         </div>
-                        <span id="password_err" class="text-danger small"></span>
+                        <span class="text-danger small"></span>
 
                         <button type="submit" id="signup" name="signup" class="btn btn-primary btn-block">Register</button>
                     </form>

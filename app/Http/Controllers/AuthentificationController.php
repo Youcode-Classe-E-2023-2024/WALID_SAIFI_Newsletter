@@ -14,49 +14,51 @@ class AuthentificationController extends Controller
         return view('login');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
-        //
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request){
-        $data = $request->validate([
-            'email' => 'required | email',
-            'password' => 'required '
+
+    public function registerSave(Request $request)
+    {
+        Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required'
+        ])->validate();
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)
+
         ]);
 
-        $newProduit = Authentification::create($data);
-        return redirect(route('/login'));
-
+        return redirect()->route('login');
     }
+
+
+
     public function show(string $id)
     {
-        //
+
     }
 
 
     public function edit(string $id)
     {
-        //
+
     }
 
 
     public function update(Request $request, string $id)
     {
-        //
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
     }
 }
