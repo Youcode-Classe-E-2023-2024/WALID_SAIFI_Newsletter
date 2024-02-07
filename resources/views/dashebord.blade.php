@@ -109,7 +109,7 @@
                         <div class="card text-dark bg-warning">
                             <div class="card-body">
                                 <i class="fas fa-book fa-2x"></i>
-                                <h5 class="card-title">Nombre de Wikis</h5>
+                                <h5 class="card-title">Nombre de rédacteurs</h5>
                                 <p class="card-text"></p>
                             </div>
                         </div>
@@ -126,11 +126,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
 
             <div class="container mt-4">
                 <div class="row">
@@ -185,15 +180,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
 
         </main>
 
