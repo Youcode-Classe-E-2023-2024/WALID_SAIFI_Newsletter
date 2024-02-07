@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthentificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,8 @@ Route::get('/', function () {
 Route::get('/dashebord', function () {
     return view('dashebord');
 });
-Route::get('/login', function () {
-    return view('login');
-});
 
+
+Route::get('/register',[AuthentificationController::class, 'pageregiter']);
+Route::get('/login',[AuthentificationController::class,'pagelogin'])->name('login.page');
+Route::post('/register',[AuthentificationController::class,'store'])->name('add.registre');
