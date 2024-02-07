@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::get('/dashebord', function () {
     return view('dashebord');
 });
+Route::get('/login', function () {
+    return view('login');
+});
+
