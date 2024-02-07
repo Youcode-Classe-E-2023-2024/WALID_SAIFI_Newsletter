@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Authentification;
 use Illuminate\Http\Request;
 
 class AuthentificationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+     public  function pageregiter(){
+         return view('register');
+     }
+    public function  pagelogin(){
+        return view('login');
     }
 
     /**
@@ -25,30 +25,28 @@ class AuthentificationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function store(Request $request){
+        $data = $request->validate([
+            'email' => 'required | email',
+            'password' => 'required '
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
+        $newProduit = Authentification::create($data);
+        return redirect(route('/login'));
+
+    }
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(string $id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, string $id)
     {
         //
