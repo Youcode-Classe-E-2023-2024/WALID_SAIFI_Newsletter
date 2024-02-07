@@ -23,6 +23,7 @@ Route::get('/dashebord', function () {
 
 
 
-Route::get('/register',[AuthentificationController::class, 'pageregiter']);
+Route::get('/register',[AuthentificationController::class, 'pageregister']);
+Route::post('/',[AuthentificationController::class, 'registerSave'])->name('register.save');
 Route::get('/login',[AuthentificationController::class,'pagelogin'])->name('login.page');
-Route::post('/register',[AuthentificationController::class,'store'])->name('add.registre');
+
