@@ -74,8 +74,15 @@ class AuthentificationController extends Controller
         // Your update method logic here
     }
 
-    public function destroy(string $id)
+
+    public function destroy(Request $request)
     {
-        // Your destroy method logic here
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 }
