@@ -40,23 +40,23 @@ class AuthentificationController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
+      //  Auth::login($user);
+
         return redirect()->route('login.page');
     }
 
-    public function loginAction(Request $request)
+    public function loginAction()
     {
-        Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required'
-        ])->validate();
+        $formFields = request()->validate([
+            "email" => 'required',
+            "password" => 'required'
+        ]);
 
-        if (!Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
-            throw ValidationException::withMessages([
-                'email' => trans('auth.failed')
-            ]);
+        if (auth()->attempt($formFields)) {
+            request()->session()->regenerate();
         }
-        $request->session()->regenerate();
-        return redirect()->route('dashebord');
+
+        return redirect()->route('dashboard');
     }
 
     public function show(string $id)
