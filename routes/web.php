@@ -20,4 +20,5 @@ Route::post('/register.save',[AuthentificationController::class, 'registerSave']
 Route::get('/login',[AuthentificationController::class,'pagelogin'])->name('login.page');
 
 Route::post('/register',[AuthentificationController::class,'loginAction'])->name('login.Action');
+Route::post('/', [AuthentificationController::class, 'destroy'])->name('logout');
 
