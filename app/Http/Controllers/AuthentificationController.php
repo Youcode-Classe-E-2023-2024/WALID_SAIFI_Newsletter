@@ -40,13 +40,13 @@ class AuthentificationController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-      //  Auth::login($user);
-
-        return redirect()->route('login.page');
+        Auth::login($user);
+        return view('dashboard');
     }
 
     public function loginAction()
     {
+        //dd(request());
         $formFields = request()->validate([
             "email" => 'required',
             "password" => 'required'
@@ -55,23 +55,22 @@ class AuthentificationController extends Controller
         if (auth()->attempt($formFields)) {
             request()->session()->regenerate();
         }
-
-        return redirect()->route('dashboard');
+        return redirect()->route('login');
     }
 
     public function show(string $id)
     {
-        // Your show method logic here
+
     }
 
     public function edit(string $id)
     {
-        // Your edit method logic here
+
     }
 
     public function update(Request $request, string $id)
     {
-        // Your update method logic here
+
     }
 
 
