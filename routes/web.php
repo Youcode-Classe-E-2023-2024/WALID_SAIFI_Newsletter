@@ -10,15 +10,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware('auth')->group(function (){
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
 
 
 Route::get('/register',[AuthentificationController::class, 'pageregister'])->name('pageregister');
-Route::post('/register.save',[AuthentificationController::class, 'registerSave'])->name('register.save');
-Route::get('/login',[AuthentificationController::class,'pagelogin'])->name('login.page');
 
-Route::post('/register',[AuthentificationController::class,'loginAction'])->name('login.Action');
+Route::middleware('guest')->group(function (){
+    Route::get('/login',[AuthentificationController::class,'pagelogin'])->name('login');
+    Route::post('/login',[AuthentificationController::class,'loginAction'])->name('loginAction');
+
+});
+Route::post('/register.save',[AuthentificationController::class, 'registerSave'])->name('register.save');
 Route::post('/', [AuthentificationController::class, 'destroy'])->name('logout');
 
