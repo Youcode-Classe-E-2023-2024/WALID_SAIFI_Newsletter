@@ -38,8 +38,9 @@
 
     <div class="navbar-nav">
         <div class="nav-item text-nowrap">
-            <form action="" method="post">
-                <button type="submit"  name="logout" class="btn btn-danger ml-auto">Déconnexion</button>
+            <form action="{{route('logout')}}" method="POST">
+                @csrf
+                <button type="submit"  class="btn btn-danger ml-auto">Déconnexion</button>
             </form>
         </div>
 
