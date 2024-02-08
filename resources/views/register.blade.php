@@ -25,7 +25,6 @@
                     <form action="{{route('register.save')}}" method="post">
 
                         @csrf
-                        @method('post')
 
                         <span id="last_err" class="text-danger small"></span>
                         <div class="form-group mb-3">
@@ -54,7 +53,7 @@
                 </div>
                 <div class="card-footer text-center">
 
-                    <p class="mb-0">Already have an account? <a href="{{ route('login.page') }}" class="text-primary">Login</a></p>
+                    <p class="mb-0">Already have an account? <a href="{{ route('loginAction') }}" class="text-primary">Login</a></p>
 
                 </div>
             </div>
