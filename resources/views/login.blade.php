@@ -23,19 +23,17 @@
                 <div class="card-body">
                     <form method="post" action="{{ route('login.Action') }}">
                         @csrf
-                        @method('post')
                         <div class="form-group mb-3">
                             <label for="email">Email:</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            <input name="email" type="email" class="form-control" id="email" placeholder="Enter your email">
                         </div>
                         @error('name')
                         <span class="text-danger small">{{ $message }}</span>
                         @enderror
                         <div class="form-group mb-3">
                             <label for="password">Password:</label>
-                            <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                            <input name="password" type="password" class="form-control" id="password" placeholder="Enter your password">
                         </div>
-
                         @error('name')
                         <span class="text-danger small">{{ $message }}</span>
                         @enderror
