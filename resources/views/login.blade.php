@@ -21,7 +21,7 @@
                     <h2 class="mb-0">Login</h2>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{ route('login.Action') }}">
+                    <form method="post" action="{{ route('loginAction') }}">
                         @csrf
                         <div class="form-group mb-3">
                             <label for="email">Email:</label>
