@@ -10,12 +10,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/dashebord', function () {
-    return view('dashebord');
-});
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
 
 Route::get('/register',[AuthentificationController::class, 'pageregister'])->name('pageregister');
-Route::post('/',[AuthentificationController::class, 'registerSave'])->name('register.save');
+Route::post('/register.save',[AuthentificationController::class, 'registerSave'])->name('register.save');
 Route::get('/login',[AuthentificationController::class,'pagelogin'])->name('login.page');
-Route::post('/',[AuthentificationController::class,'loginAction'])->name('login.Action');
+
+Route::post('/register',[AuthentificationController::class,'loginAction'])->name('login.Action');
 
