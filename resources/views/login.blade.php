@@ -27,25 +27,34 @@
                             <label for="email">Email:</label>
                             <input name="email" type="email" class="form-control" id="email" placeholder="Enter your email">
                         </div>
-                        @error('name')
+                        @error('email')
                         <span class="text-danger small">{{ $message }}</span>
                         @enderror
                         <div class="form-group mb-3">
                             <label for="password">Password:</label>
                             <input name="password" type="password" class="form-control" id="password" placeholder="Enter your password">
                         </div>
-                        @error('name')
+                        @error('password')
                         <span class="text-danger small">{{ $message }}</span>
                         @enderror
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="remember" id="remember" name="remember">
+                            <label class="form-check-label" for="remember">
+                                Remember Me
+                            </label>
+                        </div>
                         <button type="submit" name="login" class="btn btn-primary btn-block">Login</button>
                     </form>
                 </div>
                 <div class="card-footer text-center">
-                    <p class="mb-0">Don't have an account? <a href="{{route('pageregister')}}" class="text-primary">Register</a></p>
+                    <p class="mb-1">Forgot your password? <a href="" class="text-primary">Reset Password</a></p>
+                    <p class="mb-0">Don't have an account? <a href="{{ route('pageregister') }}" class="text-primary">Register</a></p>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
 
 </body>
 
