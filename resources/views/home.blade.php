@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Blog Template · Bootstrap v5.0</title>
+    <title>Home  Newsletter  </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 
@@ -76,13 +76,18 @@
                 <div class="col p-4 d-flex flex-column position-static">
                     <h3 class="mb-0">Abonnez-vous à notre newsletter</h3>
                     <p class="card-text mb-auto">Restez informé de nos dernières nouvelles et mises à jour en vous abonnant à notre newsletter.</p>
-                    <form action="" method="POST" class="mb-3">
-
+                    <form action="{{ route('subscribe') }}" method="POST" class="mb-3">
+                        @csrf
                         <div class="input-group">
                             <input type="email" class="form-control" name="email" placeholder="Enter your email" aria-label="Enter your email" required>
+
                             <button class="btn btn-primary" type="submit">Subscribe</button>
                         </div>
                     </form>
+                    @error('email')
+                    <span class="text-danger small">{{ $message }}</span>
+                    @enderror
+
                     <small class="text-muted">We respect your privacy and won't share your email with anyone.</small>
                 </div>
                 <div class="col-auto d-none d-lg-block"></div>
