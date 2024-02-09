@@ -1,15 +1,17 @@
 <?php
 
 use App\Http\Controllers\AuthentificationController;
+use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Route;
 
 
 
 
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('home');
-});
+})->name('home');
+
 Route::middleware('auth')->group(function (){
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -26,4 +28,7 @@ Route::middleware('guest')->group(function (){
 });
 Route::post('/register.save',[AuthentificationController::class, 'registerSave'])->name('register.save');
 Route::post('/', [AuthentificationController::class, 'destroy'])->name('logout');
+
+
+Route::post('subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
 
