@@ -42,16 +42,16 @@
     <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-4 pt-1">
-                <a class="link-secondary" href="#">Subscribe</a>
+                <a class="link-secondary" href="{{route('pageregister')}}">Créez un compte rédacteur.</a>
             </div>
             <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark" href="#">Large</a>
+
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
                 <a class="link-secondary" href="#" aria-label="Search">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
                 </a>
-                <a class="btn btn-sm btn-outline-secondary" href="#">login</a>
+                <a class="btn btn-sm btn-outline-secondary" href="{{route('login')}}">login</a>
             </div>
         </div>
     </header>
@@ -71,12 +71,12 @@
     </div>
 
     <div class="row mb-2">
-        <div class="col-md-6">
+        <div class="col-md-6 ">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
                     <h3 class="mb-0">Abonnez-vous à notre newsletter</h3>
                     <p class="card-text mb-auto">Restez informé de nos dernières nouvelles et mises à jour en vous abonnant à notre newsletter.</p>
-                    <form action="{{ route('subscribe') }}" method="POST" class="mb-3">
+                    <form action="" method="POST" class="mb-3">
 
                         <div class="input-group">
                             <input type="email" class="form-control" name="email" placeholder="Enter your email" aria-label="Enter your email" required>
