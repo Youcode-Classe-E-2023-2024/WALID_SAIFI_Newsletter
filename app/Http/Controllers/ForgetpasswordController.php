@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use Illuminate\Testing\Fluent\Concerns\Has;
 
 class ForgetpasswordController extends Controller
 {
@@ -30,10 +33,30 @@ class ForgetpasswordController extends Controller
          $message->subject("Reste password");
      });
 
-     return redirect()->to(route('forget_password'));
+     return redirect()->to(route('login'))->with("success","we have..............");
     }
 
-    public function rest_password(){
-
+    public function rest_password($token){
+       view('new_password', compact('token'));
     }
+    public  function  rest_passwordPost(Request $request){
+     $request->validate([
+         'email' => 'required|email',
+         'password' => 'required|confirmed',
+         'password_confirmation' => 'required'
+     ]);
+     $updatPassword = DB::table('password_reset_tokens')->where([
+         "email" => $request->email,
+         "token" => $request->token
+     ])->first();
+     if(!$updatPassword){
+         return redirect()->to(route("rest.password"))->with("error" , "Invalid");
+     }
+     User::where("email", $request->email)
+         ->update(["password" => Hash::make($request->password)]);
+
+     DB::table('password_reset_tokens')->where(["email" => $request->email])->delete();
+     return  requirect()->to(route("login"))->with("success","password rest success");
+    }
+
 }
