@@ -47,7 +47,7 @@
                     </form>
                 </div>
                 <div class="card-footer text-center">
-                    <p class="mb-1">Forgot your password? <a href="" class="text-primary">Reset Password</a></p>
+                    <p class="mb-1">Forgot your password? <a href="{{route('foget.password')}}" class="text-primary">Reset Password</a></p>
                     <p class="mb-0">Don't have an account? <a href="{{ route('pageregister') }}" class="text-primary">Register</a></p>
                 </div>
             </div>
