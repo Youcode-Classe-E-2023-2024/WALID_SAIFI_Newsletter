@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthentificationController;
+use App\Http\Controllers\ForgetpasswordController;
 use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +32,6 @@ Route::post('/', [AuthentificationController::class, 'destroy'])->name('logout')
 
 
 Route::post('subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
+Route::get('/forget_password', [ForgetpasswordController::class, 'fogetpassword']);
+
 
