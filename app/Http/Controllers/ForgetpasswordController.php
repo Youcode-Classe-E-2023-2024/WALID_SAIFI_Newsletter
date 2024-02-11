@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 
 class ForgetpasswordController extends Controller
 {
-   function fogetpassword(){
+    public  function fogetpassword(){
         return view('forget_password');
+    }
+
+    public  function fogetpasswordPost(Request $request){
+
+
     }
 }
