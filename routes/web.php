@@ -32,6 +32,7 @@ Route::post('/', [AuthentificationController::class, 'destroy'])->name('logout')
 
 
 Route::post('subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
-Route::get('/forget_password', [ForgetpasswordController::class, 'fogetpassword']);
+Route::get('/forget_password', [ForgetpasswordController::class, 'fogetpassword'])->name('foget.password');
+Route::get('/forget_password', [ForgetpasswordController::class, 'fogetpasswordPost'])->name('foget.passwordPost');
 
 
