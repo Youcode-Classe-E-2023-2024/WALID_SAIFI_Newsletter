@@ -18,15 +18,13 @@
                     <h2 class="mb-0">Forget Password</h2>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="">
-                        <!-- CSRF Token -->
-                        <!-- Add CSRF token field if using Laravel -->
+                    <form method="post" action="{{route('foget.passwordPost')}}">
                         <div class="form-group mb-3">
                             <label for="email">Email:</label>
                             <input name="email" type="email" class="form-control" id="email" placeholder="Enter your email">
                         </div>
 
-                        <button type="submit" name="reset" class="btn btn-primary btn-block">Reset Password</button>
+                        <button type="submit" class="btn btn-primary btn-block">Reset Password</button>
                     </form>
                 </div>
             </div>
