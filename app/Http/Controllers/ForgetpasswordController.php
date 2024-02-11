@@ -25,8 +25,12 @@ class ForgetpasswordController extends Controller
           'token' => $request->token,
           'created_at' => Carbon::now()
      ]);
-     Mail::send('Email.forget_password' , ['token' => $token]);
+     Mail::send('Email.forget_password', ['token' => $token], function ($message) use($request){
+         $message->to($request->email);
+         $message->subject("Reste password");
+     });
 
+     return redirect()->to(route('forget_password'));
     }
 
     public function rest_password(){
