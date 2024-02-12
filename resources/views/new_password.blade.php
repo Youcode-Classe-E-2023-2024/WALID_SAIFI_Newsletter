@@ -21,9 +21,9 @@
                     <h2 class="mb-0">Password Reset</h2>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{route('rest_passwordPost')}}">
+                    <form method="post" action="{{route('rest.passwordPost')}}">
                         @csrf
-                        <input type="text" name = "token" hidden value="{{$token}}">
+                        <input type="text" name = "token_email" hidden value="{{$token}}">
                         <div class="form-group mb-3">
                             <label for="email">Email:</label>
                             <input name="email" type="email" class="form-control" id="email" placeholder="Enter your email">
@@ -41,7 +41,7 @@
                         <div class="form-group mb-3">
                             <label for="password_confirmation">Confirm New Password:</label>
                             <input name="password_confirmation" type="password" class="form-control" id="password_confirmation" placeholder="Confirm your new password">
-                        </div>class="btn btn-primary btn-block">Reset Password</button>
+                        <button class="btn btn-primary btn-block">Reset Password</button>
                     </form>
                 </div>
                 <div class="card-footer text-center">
