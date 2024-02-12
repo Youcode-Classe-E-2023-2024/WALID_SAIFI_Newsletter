@@ -19,6 +19,7 @@
                 </div>
                 <div class="card-body">
                     <form method="post" action="{{route('foget.passwordPost')}}">
+                        @csrf
                         <div class="form-group mb-3">
                             <label for="email">Email:</label>
                             <input name="email" type="email" class="form-control" id="email" placeholder="Enter your email">
