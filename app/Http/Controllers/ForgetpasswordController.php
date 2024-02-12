@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Carbon\Carbon;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -21,11 +22,12 @@ class ForgetpasswordController extends Controller
      $request->validate([
          'email' => 'required|email'
      ]);
+
      $token = Str::random(64);
 
-     DB::teble('password_reset_tokens')->insert([
+     DB::table('password_reset_tokens')->insert([
           'email' => $request->email,
-          'token' => $request->token,
+          'token' => $token,
           'created_at' => Carbon::now()
      ]);
      Mail::send('Email.forget_password', ['token' => $token], function ($message) use($request){
@@ -37,9 +39,11 @@ class ForgetpasswordController extends Controller
     }
 
     public function rest_password($token){
-       view('new_password', compact('token'));
+      return view('new_password', compact('token'));
+        //dd($token);
     }
     public  function  rest_passwordPost(Request $request){
+        //dd($request);
      $request->validate([
          'email' => 'required|email',
          'password' => 'required|confirmed',
@@ -47,16 +51,16 @@ class ForgetpasswordController extends Controller
      ]);
      $updatPassword = DB::table('password_reset_tokens')->where([
          "email" => $request->email,
-         "token" => $request->token
+         "token" => $request->token_email
      ])->first();
      if(!$updatPassword){
-         return redirect()->to(route("rest.password"))->with("error" , "Invalid");
+         return redirect()->to(route('login'))->with("error" , "Invalid");
      }
      User::where("email", $request->email)
          ->update(["password" => Hash::make($request->password)]);
 
      DB::table('password_reset_tokens')->where(["email" => $request->email])->delete();
-     return  requirect()->to(route("login"))->with("success","password rest success");
+     return  redirect()->to(route("login"))->with("success","password rest success");
     }
 
 }
