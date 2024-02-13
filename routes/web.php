@@ -39,3 +39,7 @@ Route::get('/rest_password/{token}', [ForgetpasswordController::class, 'rest_pas
 Route::post('/rest_password', [ForgetpasswordController::class, 'rest_passwordPost'])->name('rest.passwordPost');
 
 
+Route::get('/list',[SubscriptionController::class,'index'])->name('list.email');
+Route::post('/emails/{id}/soft-delete', [SubscriptionController::class, 'softDelete'])->name('emails.softDelete');
+
+
