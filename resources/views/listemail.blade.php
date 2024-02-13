@@ -22,7 +22,7 @@
                                 <td>{{ $email->created_at }}</td>
                                 <td>
                                 <td>
-                                    <form action="{{ route('emails.softDelete', ['list' => $list]) }}" method="POST">
+                                    <form action="" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">softDelete</button>
