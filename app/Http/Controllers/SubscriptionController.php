@@ -27,5 +27,18 @@ class SubscriptionController extends Controller
         ]);
         return  redirect('home');
     }
+    public  function  index(){
+        $listemail = Subscription::all();
+        return  view('listemail',['list' => $listemail]);
+    }
+
+    public function softDelete(Subscription $subscription)
+    {
+       $subscription->delete();
+
+
+        return redirect(route('list.email'));
+    }
+
 
 }
