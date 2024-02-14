@@ -16,22 +16,21 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($list as $email)
+                        @foreach($listemail as $list)
                             <tr>
-                                <td>{{ $email->email }}</td>
-                                <td>{{ $email->created_at }}</td>
+                                <td>{{ $list->email }}</td>
+                                <td>{{ $list->created_at }}</td>
                                 <td>
-                                <td>
-                                    <form action="" method="POST">
+                                    <form action="{{ route('email.delete', ['listemail' => $list]) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">softDelete</button>
+                                        <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
-                                </td>
-
                                 </td>
                             </tr>
                         @endforeach
+
+
                         </tbody>
                     </table>
                 </div>
