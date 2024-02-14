@@ -8,7 +8,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form method="POST" action="{{ route('ajouter_templet') }}" enctype="multipart/form-data">
+                    <h1 class="text-3xl font-bold mb-8">Création d'un template newsletter</h1>
+
+                    <form method="POST" action="{{ route('ajouter.templet') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-4">
                             <label class="text-xl text-gray-600">Titre <span class="text-red-500">*</span></label></br>
@@ -36,9 +38,6 @@
                     </form>
 
                     <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
-                    <script>
-                        CKEDITOR.replace('content');
-                    </script>
 
                 </div>
             </div>
