@@ -29,16 +29,17 @@ class SubscriptionController extends Controller
     }
     public  function  index(){
         $listemail = Subscription::all();
-        return  view('listemail',['list' => $listemail]);
+        return  view('listemail',['listemail' => $listemail]);
     }
 
-    public function softDelete(Subscription $subscription)
+    public function delete(Subscription $subscription)
     {
-       $subscription->delete();
 
+        $subscription->delete();
 
-        return redirect(route('list.email'));
+        return redirect()->route('list.email');
     }
+
 
 
 }
