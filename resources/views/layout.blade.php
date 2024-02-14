@@ -49,8 +49,9 @@
 
 <div class="container-fluid">
     <div class="row  w-35 p-5">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse pl-3">
-            <div class="position-sticky pt-3">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse pl-3">
+
+        <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                 <!--    <li class="nav-item mb-2">
                         <a class="nav-link" href="#">
@@ -67,7 +68,26 @@
                     <li class="nav-item mb-2">
                         <a class="nav-link" href="#">
                             <span data-feather="bar-chart-2"></span>
+                            Créer  newsllter
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span>
+                            list des  newsllter
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="{{route('list.email')}}">
+                            <span data-feather="bar-chart-2"></span>
                             List des Email
+                        </a>
+                    </li>
+
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span>
+                            Gestion des Roles
                         </a>
                     </li>
                 </ul>
@@ -89,48 +109,11 @@
 
 
             <div class="container mt-4">
-                <div class="row">
-                    <div class="col-md-3 mb-3">
-                        <div class="card text-dark bg-warning">
-                            <div class="card-body">
-                                <i class="fas fa-tags fa-2x"></i>
-                                <h5 class="card-title">Nombre des Newsletter </h5>
-                                <p class="card-text"></p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-3 mb-3">
-                        <div class="card text-dark bg-warning">
-                            <div class="card-body">
-                                <i class="fas fa-folder fa-2x"></i>
-                                <h5 class="card-title">Nombre de Client</h5>
-                                <p class="card-text"></p>
 
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-3 mb-3">
-                        <div class="card text-dark bg-warning">
-                            <div class="card-body">
-                                <i class="fas fa-book fa-2x"></i>
-                                <h5 class="card-title">Nombre de rédacteurs</h5>
-                                <p class="card-text"></p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-3 mb-4">
-                        <div class="card text-dark bg-warning">
-                            <div class="card-body">
-                                <i class="fas fa-users fa-2x"></i>
-                                <h5 class="card-title">Nombre d'Utilisateurs</h5>
-                                <p class="card-text"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
             @yield('content')
