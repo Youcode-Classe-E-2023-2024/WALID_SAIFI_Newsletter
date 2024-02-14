@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('home');
 })->name('home');
 
@@ -39,6 +39,10 @@ Route::get('/rest_password/{token}', [ForgetpasswordController::class, 'rest_pas
 Route::post('/rest_password', [ForgetpasswordController::class, 'rest_passwordPost'])->name('rest.passwordPost');
 
 
-Route::post('/emails/{id}/soft-delete', [SubscriptionController::class, 'softDelete'])->name('emails.softDelete');
 
 Route::get('/list',[SubscriptionController::class,'index'])->name('list.email');
+Route::delete('/list/{listemail}/delete', [SubscriptionController::class, 'delete'])->name('email.delete');
+
+Route::get('/ajoutert', function () {
+    return view('ajouter_templet');
+})->name('ajouter');
