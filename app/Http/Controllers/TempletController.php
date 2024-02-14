@@ -17,22 +17,23 @@ class TempletController extends Controller
     }
 
 
-    public function store() {
-        $validated = request()->validate([
+    public function store(Request $request) {
+        $validated = $request->validate([
             'titre' => 'required|min:5',
             'description' => 'required|min:5',
             'content' => 'required|min:5',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:4048'
+            'media' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:4048'
         ]);
 
         $userId = auth()->id();
         $validated['user_id'] = $userId;
 
         $template = Template::create($validated);
-        $template->addMediaFromRequest('image')->toMediaCollection('media');
+        $template->addMediaFromRequest('media')->toMediaCollection('media');
 
         return redirect()->route('ajouter_templet');
     }
+
 
 
 
