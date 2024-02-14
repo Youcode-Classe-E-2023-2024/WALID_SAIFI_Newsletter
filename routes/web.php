@@ -20,7 +20,8 @@ Route::middleware('auth')->group(function (){
     })->name('dashboard');
 
     Route::get('/ajouterT',[TempletController::class, 'index'])->name('ajouter');
-    Route::post('/ajoutertemplet', [TempletController::class, 'store'])->name('ajouter_templet');
+
+    Route::post('/ajoutertemp', [TempletController::class, 'store'])->name('ajouter.templet');
 
 
     Route::get('/list',[SubscriptionController::class,'index'])->name('list.email');
@@ -51,6 +52,4 @@ Route::post('/rest_password', [ForgetpasswordController::class, 'rest_passwordPo
 
 
 
-/*Route::get('/ajoutert', function () {
-    return view('ajouter_templet');
-})->name('ajouter');*/
+
