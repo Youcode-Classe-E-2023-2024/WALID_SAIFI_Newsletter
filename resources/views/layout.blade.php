@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./assets/image/Wiki.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css" rel="stylesheet">
 
 
     <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -54,47 +55,52 @@
 
 <div class="container-fluid">
     <div class="row  w-35 p-5">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse pl-3 h-100">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse pl-3 h-150">
 
-        <div class="position-sticky pt-3">
+            <!-- Contenu de la barre latérale -->
+            <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
-                <!--    <li class="nav-item mb-2">
-                        <a class="nav-link" href="#">
-                            <span data-feather="users"></span>
-                            Liste des Wiki
-                        </a>
-                    </li> --->
+
+                    <!-- Element de navigation : Liste des Utilisateurs -->
                     <li class="nav-item mb-2">
                         <a class="nav-link" href="#">
-                            <span data-feather="bar-chart-2"></span>
-                            List des Utilisateur
+                            <span data-feather="bar-chart-2"></span> <!-- Icône -->
+                            List des Utilisateur <!-- Texte du lien -->
                         </a>
                     </li>
+
+                    <!-- Element de navigation : Créer une newsletter -->
                     <li class="nav-item mb-2">
                         <a class="nav-link" href="{{route('ajouter')}}">
-                            <span data-feather="bar-chart-2"></span>
-                            Créer  newsllter
-                        </a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a class="nav-link" href="#">
-                            <span data-feather="bar-chart-2"></span>
-                            list des  newsllter
-                        </a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a class="nav-link" href="{{route('list.email')}}">
-                            <span data-feather="bar-chart-2"></span>
-                            List des Email
+                            <span data-feather="bar-chart-2"></span> <!-- Icône -->
+                            Créer newsletter <!-- Texte du lien -->
                         </a>
                     </li>
 
+                    <!-- Element de navigation : Liste des newsletters -->
                     <li class="nav-item mb-2">
                         <a class="nav-link" href="#">
-                            <span data-feather="bar-chart-2"></span>
-                            Gestion des Roles
+                            <span data-feather="bar-chart-2"></span> <!-- Icône -->
+                            Liste des newsletters <!-- Texte du lien -->
                         </a>
                     </li>
+
+                    <!-- Element de navigation : Liste des Emails -->
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="{{route('list.email')}}">
+                            <span data-feather="bar-chart-2"></span> <!-- Icône -->
+                            Liste des Email <!-- Texte du lien -->
+                        </a>
+                    </li>
+
+                    <!-- Element de navigation : Gestion des Rôles -->
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span> <!-- Icône -->
+                            Gestion des Rôles <!-- Texte du lien -->
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </nav>
