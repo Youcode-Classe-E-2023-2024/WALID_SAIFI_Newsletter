@@ -49,7 +49,7 @@
 
 <div class="container-fluid">
     <div class="row  w-35 p-5">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse pl-3">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse pl-3 h-100">
 
         <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
@@ -66,7 +66,7 @@
                         </a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('ajouter')}}">
                             <span data-feather="bar-chart-2"></span>
                             Créer  newsllter
                         </a>
