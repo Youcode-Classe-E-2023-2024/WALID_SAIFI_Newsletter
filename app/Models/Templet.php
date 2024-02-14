@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Templet extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'titre',
+        'descrition'
+    ];
 }
