@@ -11,6 +11,7 @@ class Templet extends Model
     protected $fillable = [
         'titre',
         'descrition',
-        'content'
+        'content',
+         'media'
     ];
 }
