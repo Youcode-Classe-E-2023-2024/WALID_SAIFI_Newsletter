@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthentificationController;
 use App\Http\Controllers\ForgetpasswordController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\TempletController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,6 +18,12 @@ Route::middleware('auth')->group(function (){
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/ajouterT',[TempletController::class, 'index'])->name('ajouter');
+
+    Route::get('/list',[SubscriptionController::class,'index'])->name('list.email');
+    Route::delete('/list/{listemail}/delete', [SubscriptionController::class, 'delete'])->name('email.delete');
+
 });
 
 
@@ -40,9 +47,8 @@ Route::post('/rest_password', [ForgetpasswordController::class, 'rest_passwordPo
 
 
 
-Route::get('/list',[SubscriptionController::class,'index'])->name('list.email');
-Route::delete('/list/{listemail}/delete', [SubscriptionController::class, 'delete'])->name('email.delete');
 
-Route::get('/ajoutert', function () {
+
+/*Route::get('/ajoutert', function () {
     return view('ajouter_templet');
-})->name('ajouter');
+})->name('ajouter');*/
