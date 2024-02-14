@@ -14,13 +14,17 @@
                             <label for="inputAddress" class="form-label">Titre</label>
                             <input type="text" class="form-control" name="titre" placeholder="Titre">
                         </div>
-
+                        @error('titre')
+                        <span class="text-danger small">{{ $message }}</span>
+                        @enderror
                         <div class="row mb-3">
                             <div class="col">
                                 <label for="inputCity" class="form-label">Descrition</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control" name="description" rows="3"></textarea>
                             </div>
-
+                            @error('description')
+                            <span class="text-danger small">{{ $message }}</span>
+                            @enderror
                             <div>
                                 <label for="formFileLg" class="form-label">Upload d'image, vidéo ou fichier</label>
                                 <input class="form-control form-control-lg" id="formFileLg" type="file">
