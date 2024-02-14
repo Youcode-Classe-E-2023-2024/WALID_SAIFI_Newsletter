@@ -4,14 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Templet extends Model
+class Templet extends Model implements HasMedia
 {
     use HasFactory;
+    use InteractsWithMedia;
+
     protected $fillable = [
-        'titre',
-        'descrition',
-        'content',
-         'media'
+         'titre',
+         'description',
+         'content',
+         'user_id'
+
     ];
 }
