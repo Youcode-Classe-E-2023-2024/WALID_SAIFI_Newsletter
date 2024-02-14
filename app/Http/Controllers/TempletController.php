@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Templet;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use SebastianBergmann\Template\Template;
+use App\Models\Templet;
 
 class TempletController extends Controller
 {
@@ -18,6 +18,7 @@ class TempletController extends Controller
 
 
     public function store(Request $request) {
+       // dd($request);
         $validated = $request->validate([
             'titre' => 'required|min:5',
             'description' => 'required|min:5',
@@ -25,14 +26,22 @@ class TempletController extends Controller
             'media' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:4048'
         ]);
 
-        $userId = auth()->id();
-        $validated['user_id'] = $userId;
+        if(auth()->check()) {
 
-        $template = Template::create($validated);
-        $template->addMediaFromRequest('media')->toMediaCollection('media');
+            $validated['user_id'] = auth()->id();
 
-        return redirect()->route('ajouter_templet');
+
+            $template = Templet::create($validated);
+
+
+            $template->addMediaFromRequest('media')->toMediaCollection('media');
+
+
+            return redirect()->route('ajouter');
+
+        }
     }
+
 
 
 
