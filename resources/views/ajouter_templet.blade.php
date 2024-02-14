@@ -2,39 +2,49 @@
 @section('content')
 
 
-    <div class="container mt-5">
-        <div class="container mt-5">
-            <div class="card bg-dark text-white col-md-7">
-                <div class="card-body ">
-                    <h5 class="card-title">Ajouter Templet</h5>
-                    <form>
 
+    <!-- component -->
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    <form method="POST" action="">
+                        <div class="mb-4">
+                            <label class="text-xl text-gray-600">Title <span class="text-red-500">*</span></label></br>
+                            <input type="text" class="border-2 border-gray-300 p-2 w-full" name="title" id="title" value="" required>
+                        </div>
 
-                        <div class="mb-3">
-                            <label for="inputAddress" class="form-label">Titre</label>
-                            <input type="text" class="form-control" name="titre" placeholder="Titre">
+                        <div class="mb-4">
+                            <label class="text-xl text-gray-600">Description</label></br>
+                            <input type="text" class="border-2 border-gray-300 p-2 w-full" name="description" id="description" placeholder="(Optional)">
                         </div>
-                        @error('titre')
-                        <span class="text-danger small">{{ $message }}</span>
-                        @enderror
-                        <div class="row mb-3">
-                            <div class="col">
-                                <label for="inputCity" class="form-label">Descrition</label>
-                                <textarea class="form-control" name="description" rows="3"></textarea>
-                            </div>
-                            @error('description')
-                            <span class="text-danger small">{{ $message }}</span>
-                            @enderror
-                            <div>
-                                <label for="formFileLg" class="form-label">Upload d'image, vidéo ou fichier</label>
-                                <input class="form-control form-control-lg" id="formFileLg" type="file">
-                            </div>
+
+                        <div class="mb-8">
+                            <label class="text-xl text-gray-600">Content <span class="text-red-500">*</span></label></br>
+                            <textarea name="content" class="border-2 border-gray-500">
+
+                            </textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">ajouter</button>
+
+                        <div>
+                            <label for="formFileLg" class="form-label">Upload d'image, vidéo ou fichier</label>
+                            <input class="form-control form-control-lg" id="formFileLg" type="file">
+                        </div>
+
+                        <div class="flex p-1">
+
+                            <button type="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400" required>Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace( 'content' );
+    </script>
 
 @endsection
