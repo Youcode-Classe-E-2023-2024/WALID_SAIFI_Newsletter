@@ -10,6 +10,7 @@ class Templet extends Model
     use HasFactory;
     protected $fillable = [
         'titre',
-        'descrition'
+        'descrition',
+        'content'
     ];
 }
