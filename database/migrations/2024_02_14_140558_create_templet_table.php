@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('templet', function (Blueprint $table) {
-            
-            $table->id();
-            $table->string('titre');
-            $table->string('description');
-            $table->integer('id_createur');
-            $table->timestamps();
+        Schema::create('template', function (Blueprint $table) {
 
+            $table->id();
+
+            $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('titre');
+            $table->text('description');
+            $table->text('content');
+
+            $table->timestamps();
         });
     }
 
