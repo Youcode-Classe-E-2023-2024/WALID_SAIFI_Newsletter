@@ -20,6 +20,8 @@ Route::middleware('auth')->group(function (){
     })->name('dashboard');
 
     Route::get('/ajouterT',[TempletController::class, 'index'])->name('ajouter');
+    Route::post('/ajoutertemplet', [TempletController::class, 'store'])->name('ajouter_templet');
+
 
     Route::get('/list',[SubscriptionController::class,'index'])->name('list.email');
     Route::delete('/list/{listemail}/delete', [SubscriptionController::class, 'delete'])->name('email.delete');
