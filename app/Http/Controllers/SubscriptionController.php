@@ -38,6 +38,7 @@ class SubscriptionController extends Controller
         $subscription->delete();
 
         return redirect()->route('list.email');
+
     }
 
 
