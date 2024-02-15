@@ -45,8 +45,9 @@ class TempletController extends Controller
 
     public function show()
     {
-        $templates = Templet::with('media')->get()->toArray();
-        dd($templates);
+        $templates = Templet::with('media')->get();
+       // dd($templates);
+
         return view('liste_tmp', ['templates' => $templates]);
     }
 
