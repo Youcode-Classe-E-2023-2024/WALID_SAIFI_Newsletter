@@ -29,7 +29,7 @@
 
                         <div>
                             <label for="formFileLg" class="form-label">Upload d'image, vidéo ou fichier</label>
-                            <input class="form-control form-control-lg" name="media" id="formFileLg" type="file" required>
+                            <input class="form-control form-control-lg" name="media" type="file" required>
                         </div>
 
                         <div class="flex p-1">
