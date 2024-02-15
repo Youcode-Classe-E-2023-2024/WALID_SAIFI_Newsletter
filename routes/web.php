@@ -4,7 +4,9 @@ use App\Http\Controllers\AuthentificationController;
 use App\Http\Controllers\ForgetpasswordController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\TempletController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MediaController;
 
 
 
@@ -15,6 +17,11 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware('auth')->group(function (){
+
+    Route::get('/media', function () {
+        return view('ajouter_media');
+    })->name('ajouter');
+    Route::post('/media', [UploadController::class, 'store'])->name('media');
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -50,6 +57,7 @@ Route::post('/rest_password', [ForgetpasswordController::class, 'rest_passwordPo
 
 
 Route::get('/tmp', [TempletController::class, 'show'])->name('show_tmp');
+
 
 
 
