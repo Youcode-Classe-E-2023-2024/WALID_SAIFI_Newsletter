@@ -12,21 +12,23 @@ class TempletController extends Controller
 {
 
 
-    public  function  index(){
+    public function index()
+    {
         return view('ajouter_templet');
     }
 
 
-    public function store(Request $request) {
-       // dd($request);
+    public function store(Request $request)
+    {
+        // dd($request);
         $validated = $request->validate([
             'titre' => 'required|min:5',
             'description' => 'required|min:5',
-            'content' => 'required|min:5',
-            'media' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:4048'
+            'content' => 'required',
+            'media' => 'required'
         ]);
 
-        if(auth()->check()) {
+        if (auth()->check()) {
 
             $validated['user_id'] = auth()->id();
 
@@ -36,16 +38,16 @@ class TempletController extends Controller
 
             $template->addMediaFromRequest('media')->toMediaCollection('media');
 
-
             return redirect()->route('ajouter');
 
         }
     }
 
-
-
-
-
+    public function show()
+    {
+        $templates = Templet::with('media')->get();
+        return view('liste_tmp', ['templates' => $templates]);
+    }
 
 
 }
