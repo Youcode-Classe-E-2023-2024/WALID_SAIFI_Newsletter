@@ -1,66 +1,52 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Gestionnaire de Newsletter
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+Introduction
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Cette plateforme web a été développée pour répondre aux besoins croissants de centralisation et de rationalisation des opérations en ligne de notre client, une entreprise en pleine croissance dans le secteur de la communication et du marketing. Elle intègre des fonctionnalités avancées pour améliorer la communication, la gestion de l'information et la collaboration au sein de l'équipe.
+Fonctionnalités Principales
+Gestion de Newsletter (Spatie)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+La plateforme permet à l'entreprise d'envoyer des newsletters régulières à ses clients et partenaires. L'intégration du package Spatie Newsletter facilite la création, l'envoi, et le suivi des campagnes de newsletters.
+Authentification avec Gestion des Rôles (Policies et Guards)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Un système d'authentification robuste est mis en place avec gestion des rôles basée sur les politiques et gardes de Laravel. Trois rôles distincts sont définis : Administrateur, Rédacteur, et Membre, avec des autorisations spécifiques pour accéder et modifier certaines parties de la plateforme.
+Fonctionnalités Forgot Password et Remember Me
 
-## Learning Laravel
+La plateforme inclut les fonctionnalités "forgot password" pour permettre aux utilisateurs de réinitialiser leur mot de passe, ainsi que la fonction "remember me" pour faciliter la connexion automatique.
+Media Library (Spatie)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+La gestion de médias est simplifiée grâce à l'utilisation de Spatie Media Library, permettant aux utilisateurs de télécharger, organiser et partager des fichiers multimédias. Chaque média est associé à un utilisateur ou à un projet spécifique.
+Soft Delete
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Les enregistrements sont marqués comme supprimés plutôt que d'être supprimés physiquement de la base de données, offrant ainsi la possibilité de les restaurer si nécessaire.
+Middleware
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Des middleware sont utilisés pour gérer les autorisations spécifiques aux rôles, garantissant que chaque utilisateur a accès uniquement aux fonctionnalités qui lui sont autorisées en fonction de son rôle.
+Génération PDF
 
-## Laravel Sponsors
+La plateforme peut générer des fichiers PDF à partir de données spécifiques, comme des rapports mensuels sur les performances des campagnes de newsletters ou des récapitulatifs des médias téléchargés sur une période donnée.
+Modélisation avec 3 Rôles
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+La base de données est modélisée pour prendre en charge les trois rôles définis (Administrateur, Rédacteur, Membre), assurant ainsi une séparation claire des données et des responsabilités au sein de la plateforme.
+Configuration du Projet
 
-### Premium Partners
+    Cloner le projet depuis le dépôt Git.
+    Installer les dépendances en exécutant composer install.
+    Copier le fichier .env.example et le renommer en .env, puis configurer les paramètres de l'application.
+    Générer une nouvelle clé d'application en exécutant php artisan key:generate.
+    Effectuer les migrations de la base de données avec php artisan migrate.
+    Lancer le serveur de développement avec php artisan serve.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Technologies Utilisées
 
-## Contributing
+    Laravel
+    Spatie Newsletter
+    Spatie Media Library
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Contributeurs
 
-## Code of Conduct
+    Nom du Contributeur 1
+    Nom du Contributeur 2
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Ce README donne un aperçu global du projet, des fonctionnalités implémentées, des étapes pour configurer le projet, des technologies utilisées et des contributeurs. Assurez-vous d'adapter les détails spécifiques de votre projet avant de l'utiliser.
