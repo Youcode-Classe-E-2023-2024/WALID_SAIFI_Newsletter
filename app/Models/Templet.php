@@ -17,6 +17,10 @@ class Templet extends Model implements HasMedia
          'description',
          'content',
          'user_id'
-
     ];
+
+
+
+    
+
 }
