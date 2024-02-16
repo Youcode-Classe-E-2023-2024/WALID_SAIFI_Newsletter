@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Media;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -14,42 +15,45 @@ class TempletController extends Controller
 
     public function index()
     {
-        return view('ajouter_templet');
+        $medias = Media::all();
+        return view('ajouter_templet',['medias' => $medias]);
     }
 
 
     public function store(Request $request)
     {
-        // dd($request);
+        // Validation des données
         $validated = $request->validate([
             'titre' => 'required|min:5',
-            'description' => 'required|min:5',
+            'description' => 'nullable|min:5',
             'content' => 'required',
-            'media' => 'required'
+            'selected_media' => 'nullable|array', // Assurez-vous que c'est un tableau
         ]);
 
-        if (auth()->check()) {
+        // Création du modèle
+        $template = Templet::create([
+            'titre' => $validated['titre'],
+            'description' => $validated['description'],
+            'content' => $validated['content'],
+            'user_id' => auth()->id(),
+        ]);
 
-            $validated['user_id'] = auth()->id();
-
-
-            $template = Templet::create($validated);
-
-
-            $template->addMediaFromRequest('media')->toMediaCollection('media');
-
-            return redirect()->route('ajouter');
-
+        // Associer les médias sélectionnés au modèle
+        if (isset($validated['selected_media'])) {
+            $template->syncMedia($validated['selected_media']);
         }
+
+        // Redirection
+        return redirect()->route('ajouter');
     }
 
-    public function show()
+
+    public function show_media()
     {
-        $templates = Templet::with('media')->get();
-       // dd($templates);
-
-        return view('liste_tmp', ['templates' => $templates]);
+        $medias = Media::all();
+        return view('ajouter_templet', compact('medias'));
     }
+
 
 
 }
