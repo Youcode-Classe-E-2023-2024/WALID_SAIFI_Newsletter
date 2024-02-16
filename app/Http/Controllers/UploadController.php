@@ -13,7 +13,7 @@ class UploadController
         $request->validate([
             'media' => 'required|file',
         ]);
-       // dd($request);
+           // dd($request);
 
         if ($request->hasFile('media')) {
 
