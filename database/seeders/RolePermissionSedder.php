@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
@@ -13,7 +14,7 @@ class RolePermissionSedder extends Seeder
      */
     public function run(): void
     {
-        $permissionSuppressionEmail = Permission::create(['name' => 'supprimer email']);
+       /* $permissionSuppressionEmail = Permission::create(['name' => 'supprimer email']);
         $permissionModifierUtilisateur = Permission::create(['name' => 'modifier utilisateur']);
         $permissionSupprimerUtilisateur = Permission::create(['name' => 'supprimer utilisateur']);
         $permissionCreationTemplate = Permission::create(['name' => 'créer template']);
@@ -23,6 +24,22 @@ class RolePermissionSedder extends Seeder
 
         $roleRedacteur = Role::create(['name' => 'rédacteur']);
         $roleAdmin = Role::create(['name' => 'admin']);
+        $rolevieux = Role::create(['name' => 'viewer']);*/
+
+
+
+
+         $permissionSuppressionEmail = Permission::create(['name' => 'supprimer email']);
+        $permissionModifierUtilisateur = Permission::create(['name' => 'modifier utilisateur']);
+        $permissionSupprimerUtilisateur = Permission::create(['name' => 'supprimer utilisateur']);
+        $permissionCreationTemplate = Permission::create(['name' => 'créer template']);
+        $permissionEnvoyerTemplate = Permission::create(['name' => 'envoyer template']);
+        $permissionModifierTemplate = Permission::create(['name' => 'modifier template']);
+        $permissionGenererPDF = Permission::create(['name' => 'générer pdf']);
+
+        $roleRedacteur = Role::create(['name' => 'rédacteur']);
+        $roleAdmin = Role::create(['name' => 'admin']);
+        $rolevieux = Role::create(['name' => 'viewer']);
 
 
         $roleRedacteur->givePermissionTo($permissionModifierUtilisateur);
@@ -33,7 +50,6 @@ class RolePermissionSedder extends Seeder
         $roleRedacteur->givePermissionTo($permissionGenererPDF);
 
 
-        // Ajout des permissions à l'administrateur
 
 
         $roleAdmin->givePermissionTo($permissionSuppressionEmail);
