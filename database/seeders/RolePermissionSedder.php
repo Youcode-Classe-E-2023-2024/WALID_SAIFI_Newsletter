@@ -1,9 +1,7 @@
 <?php
-
 namespace Database\Seeders;
 
 use App\Models\Role;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 
@@ -14,43 +12,23 @@ class RolePermissionSedder extends Seeder
      */
     public function run(): void
     {
-       /* $permissionSuppressionEmail = Permission::create(['name' => 'supprimer email']);
-        $permissionModifierUtilisateur = Permission::create(['name' => 'modifier utilisateur']);
-        $permissionSupprimerUtilisateur = Permission::create(['name' => 'supprimer utilisateur']);
-        $permissionCreationTemplate = Permission::create(['name' => 'créer template']);
-        $permissionEnvoyerTemplate = Permission::create(['name' => 'envoyer template']);
-        $permissionModifierTemplate = Permission::create(['name' => 'modifier template']);
-        $permissionGenererPDF = Permission::create(['name' => 'générer pdf']);
+        $permissionSuppressionEmail = Permission::firstOrCreate(['name' => 'supprimer email']);
+        $permissionModifierUtilisateur = Permission::firstOrCreate(['name' => 'modifier utilisateur']);
+        $permissionSupprimerUtilisateur = Permission::firstOrCreate(['name' => 'supprimer utilisateur']);
+        $permissionCreationTemplate = Permission::firstOrCreate(['name' => 'créer template']);
+        $permissionEnvoyerTemplate = Permission::firstOrCreate(['name' => 'envoyer template']);
+        $permissionModifierTemplate = Permission::firstOrCreate(['name' => 'modifier template']);
+        $permissionGenererPDF = Permission::firstOrCreate(['name' => 'générer pdf']);
 
-        $roleRedacteur = Role::create(['name' => 'rédacteur']);
-        $roleAdmin = Role::create(['name' => 'admin']);
-        $rolevieux = Role::create(['name' => 'viewer']);*/
-
-
-
-
-         $permissionSuppressionEmail = Permission::create(['name' => 'supprimer email']);
-        $permissionModifierUtilisateur = Permission::create(['name' => 'modifier utilisateur']);
-        $permissionSupprimerUtilisateur = Permission::create(['name' => 'supprimer utilisateur']);
-        $permissionCreationTemplate = Permission::create(['name' => 'créer template']);
-        $permissionEnvoyerTemplate = Permission::create(['name' => 'envoyer template']);
-        $permissionModifierTemplate = Permission::create(['name' => 'modifier template']);
-        $permissionGenererPDF = Permission::create(['name' => 'générer pdf']);
-
-        $roleRedacteur = Role::create(['name' => 'rédacteur']);
-        $roleAdmin = Role::create(['name' => 'admin']);
-        $rolevieux = Role::create(['name' => 'viewer']);
+        $roleRedacteur = Role::firstOrCreate(['name' => 'rédacteur' , 'guard_name' => 'web']);
+        $roleAdmin = Role::firstOrCreate(['name' => 'admin' , 'guard_name' => 'web']);
+        $rolevieux = Role::firstOrCreate(['name' => 'viewer' , 'guard_name' => 'web']);
 
 
         $roleRedacteur->givePermissionTo($permissionModifierUtilisateur);
-        $roleRedacteur->givePermissionTo($permissionSupprimerUtilisateur);
         $roleRedacteur->givePermissionTo($permissionCreationTemplate);
         $roleRedacteur->givePermissionTo($permissionEnvoyerTemplate);
-        $roleRedacteur->givePermissionTo($permissionModifierTemplate);
         $roleRedacteur->givePermissionTo($permissionGenererPDF);
-
-
-
 
         $roleAdmin->givePermissionTo($permissionSuppressionEmail);
         $roleAdmin->givePermissionTo($permissionModifierUtilisateur);
