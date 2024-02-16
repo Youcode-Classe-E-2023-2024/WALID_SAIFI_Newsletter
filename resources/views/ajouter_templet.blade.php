@@ -31,21 +31,13 @@
 
                         <div>liste des médias</div>
 
+                        <select name="media_id" class="border-2 border-gray-300 p-2 w-full">
+                            @foreach ($medias as $media)
+                                <option value="{{ $media->id }}">{{ $media->name }}</option>
+                            @endforeach
+                        </select>
 
 
-                        @foreach ($medias as $media)
-                            <div class="flex items-center">
-                                <input type="checkbox" name="selected_media[]" value="{{ $media->id }}" class="mr-2">
-                                @if ($media->hasMedia('images'))
-                                    <img src="{{ $media->getFirstMediaUrl('images') }}" alt="Media" class="w-32 h-32">
-                                @elseif ($media->hasMedia('videos'))
-                                    <video src="{{ $media->getFirstMediaUrl('videos') }}" controls class="w-32 h-32"></video>
-                                @elseif ($media->hasMedia('pdfs'))
-                                    <embed src="{{ $media->getFirstMediaUrl('pdfs') }}" type="application/pdf" width="100" height="100">
-                                @endif
-                                {{ $media->name }}
-                            </div>
-                        @endforeach
 
 
 
