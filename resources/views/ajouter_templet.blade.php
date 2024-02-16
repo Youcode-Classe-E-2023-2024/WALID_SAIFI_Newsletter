@@ -27,14 +27,37 @@
                             <textarea name="content" class="border-2 border-gray-500"></textarea>
                         </div>
 
-                        <div>
-                            <label for="formFileLg" class="form-label">Upload d'image, vidéo ou fichier</label>
-                            <input class="form-control form-control-lg" name="media" type="file" required>
-                        </div>
+
+
+                        <div>liste des médias</div>
+
+
+
+                        @foreach ($medias as $media)
+                            <div class="flex items-center">
+                                <input type="checkbox" name="selected_media[]" value="{{ $media->id }}" class="mr-2">
+                                @if ($media->hasMedia('images'))
+                                    <img src="{{ $media->getFirstMediaUrl('images') }}" alt="Media" class="w-32 h-32">
+                                @elseif ($media->hasMedia('videos'))
+                                    <video src="{{ $media->getFirstMediaUrl('videos') }}" controls class="w-32 h-32"></video>
+                                @elseif ($media->hasMedia('pdfs'))
+                                    <embed src="{{ $media->getFirstMediaUrl('pdfs') }}" type="application/pdf" width="100" height="100">
+                                @endif
+                                {{ $media->name }}
+                            </div>
+                        @endforeach
+
+
+
+
+
 
                         <div class="flex p-1">
                             <button type="submit" class="p-3 bg-blue-500 text-white hover:bg-blue-400">Soumettre</button>
                         </div>
+
+
+
                     </form>
 
                     <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
