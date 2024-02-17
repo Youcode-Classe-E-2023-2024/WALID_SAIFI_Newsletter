@@ -3,6 +3,21 @@
 
     @role('Admin')
 
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
 
     <div class="flex justify-start mb-4">
@@ -48,17 +63,21 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Name de Role:</label>
-                            <input type="text" class="form-control" id="recipient-name">
-                        </div>
 
+
+
+                    <form method="post" action="{{route('role_ajouter')}}">
+                        @csrf
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label" >Name de Role:</label>
+                            <input type="text" class="form-control" id="recipient-name" name="name">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Ajouter</button>
+                        </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Ajouter</button>
-                </div>
+
             </div>
         </div>
     </div>
