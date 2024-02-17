@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthentificationController;
 use App\Http\Controllers\ForgetpasswordController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\TempletController;
 use App\Http\Controllers\UploadController;
@@ -33,6 +35,9 @@ Route::middleware('auth')->group(function (){
 
     Route::get('/list',[SubscriptionController::class,'index'])->name('list.email');
     Route::delete('/list/{listemail}/delete', [SubscriptionController::class, 'delete'])->name('email.delete');
+
+    Route::get('/role', [RoleController::class, 'index'])->name('role.list');
+    Route::get('/permission', [PermissionController::class, 'index'])->name('permission.list');
 
 });
 
