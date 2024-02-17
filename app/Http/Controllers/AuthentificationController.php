@@ -24,21 +24,25 @@ class AuthentificationController extends Controller
     public function registerSave(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required|confirmed', // Utilisation de la règle "confirmed" pour vérifier la confirmation du mot de passe
         ]);
+
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $user = new User;
-        $user->name = $request->name;
         $user->email = $request->email;
-        $user->idRole = 2;
         $user->password = Hash::make($request->password);
         $user->save();
+
+        if (User::count() === 1) {
+            $user->assignRole('Admin');
+        } else {
+            $user->assignRole('consultant');
+        }
 
         Auth::login($user);
         return view('dashboard');
