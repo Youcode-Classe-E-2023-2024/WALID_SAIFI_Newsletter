@@ -39,6 +39,8 @@ Route::middleware('auth')->group(function (){
     Route::get('/role', [RoleController::class, 'index'])->name('role.list');
     Route::get('/permission', [PermissionController::class, 'index'])->name('permission.list');
 
+    Route::post('/role_ajouter', [RoleController::class, 'store'])->name('role_ajouter');
+
 });
 
 
