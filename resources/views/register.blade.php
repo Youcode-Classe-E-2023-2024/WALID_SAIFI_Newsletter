@@ -23,42 +23,40 @@
                 </div>
                 <div class="card-body">
                     <form action="{{route('register.save')}}" method="post">
-
                         @csrf
-
-                        <span id="last_err" class="text-danger small"></span>
-                        <div class="form-group mb-3">
-                            <label for="email">Username:</label>
-                            <input type="text" name="name" class="form-control" id="email" placeholder="Enter votre username">
-                        </div>
-                        @error('name')
-                        <span class="text-danger small">{{ $message }}</span>
-                        @enderror
 
                         <div class="form-group mb-3">
                             <label for="email">Email:</label>
                             <input type="email" name="email" class="form-control" id="email" placeholder="Enter votre email">
+                            @error('email')
+                            <span class="text-danger small">{{ $message }}</span>
+                            @enderror
                         </div>
-                        @error('email')
-                        <span class="text-danger small">{{ $message }}</span>
-                         @enderror
+
                         <div class="form-group mb-3">
                             <label for="password">Password:</label>
                             <input type="password" name="password" class="form-control" id="password" placeholder="Enter votre password">
                         </div>
-                        <span class="text-danger small"></span>
+
+                        <div class="form-group mb-3">
+                            <label for="password_confirmation">Confirm Password:</label>
+                            <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Confirm your password">
+                            @error('password')
+                            <span class="text-danger small">{{ $message }}</span>
+                            @enderror
+                        </div>
 
                         <button type="submit" id="signup" name="signup" class="btn btn-primary btn-block">Register</button>
                     </form>
                 </div>
                 <div class="card-footer text-center">
-
                     <p class="mb-0">Already have an account? <a href="{{ route('loginAction') }}" class="text-primary">Login</a></p>
-
                 </div>
             </div>
         </div>
     </div>
+</div>
+
 
 </body>
 
