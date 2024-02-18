@@ -25,14 +25,14 @@ class SubscriptionController extends Controller
         Subscription::create([
             'email' => $request->email,
         ]);
-        return  redirect('home');
+        return  redirect('/');
     }
     public  function  index(){
         $listemail = Subscription::all();
         return  view('listemail',['listemail' => $listemail]);
     }
 
-    public function delete(Subscription $subscription)
+    public function destroy(Subscription $subscription)
     {
 
         $subscription->delete();
