@@ -3,6 +3,29 @@
 
     @role('Admin')
 
+    @if(session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+
 
     <div class="flex justify-start mb-4">
 
@@ -22,8 +45,23 @@
                 <tr class="bg-gray-800 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-700 dark:hover:bg-gray-600">
                     <td class="px-6 py-4">{{ $permission->name }}</td>
                     <td class="px-6 py-4 flex flex-col">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mb-2">Modifier</a>
-                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Supprimer</a>
+                        <div class="flex">
+                            <form method="get" action="{{ route('edit_permission', ['permission' => $permission->id]) }}" class="mr-2">
+                                @csrf
+                                <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mb-2">
+                                    Modifier
+                                </button>
+                            </form>
+
+                            <form method="post" action="{{ route('permission.destroy', ['permission' => $permission]) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">Supprime</button>
+                            </form>
+                        </div>
+
+
+
                     </td>
                 </tr>
             @endforeach
@@ -43,24 +81,22 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="{{route('permission_ajouter')}}" method="post">
+
+                        @csrf
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Name de Permission:</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <input type="text" class="form-control" id="recipient-name" name="name">
                         </div>
-
+                        <div class="modal-footer">
+                            <button type="submit"  name="ajouter" class="btn btn-primary">Ajouter</button>
+                        </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Ajouter</button>
-                </div>
+
             </div>
         </div>
     </div>
-
-
-
-
 
 
 
