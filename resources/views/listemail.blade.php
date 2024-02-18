@@ -21,11 +21,13 @@
                                 <td>{{ $list->email }}</td>
                                 <td>{{ $list->created_at }}</td>
                                 <td>
-                                    <form action="{{ route('email.delete', ['listemail' => $list]) }}" method="POST">
+                                    <form action="{{ route('email_Soft_delete', $list->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        <button type="submit" name="delete" class="btn btn-danger">Delete</button>
                                     </form>
+
+
                                 </td>
                             </tr>
                         @endforeach
