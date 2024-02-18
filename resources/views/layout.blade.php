@@ -78,7 +78,7 @@
                     @endrole
                     <!-- Element de navigation : Liste des Utilisateurs -->
                     <li class="nav-item mb-2">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('affiche_user')}}">
                             <span data-feather="bar-chart-2"></span> <!-- Icône -->
                             List des Utilisateur <!-- Texte du lien -->
                         </a>
@@ -99,7 +99,7 @@
                             Liste des newsletters <!-- Texte du lien -->
                         </a>
                     </li>
-
+                   @can('list email')
                     <!-- Element de navigation : Liste des Emails -->
                     <li class="nav-item mb-2">
                         <a class="nav-link" href="{{route('list.email')}}">
@@ -107,6 +107,7 @@
                             Liste des Email <!-- Texte du lien -->
                         </a>
                     </li>
+                    @endcan
 
                     <!-- Element de navigation : Gestion des Rôles -->
                     <li class="nav-item mb-2">
@@ -115,6 +116,7 @@
                             Gestion des Rôles <!-- Texte du lien -->
                         </a>
                     </li>
+
 
 
                 </ul>
