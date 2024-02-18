@@ -99,6 +99,13 @@
                             Liste des newsletters <!-- Texte du lien -->
                         </a>
                     </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link" href="#">
+                            <span data-feather="bar-chart-2"></span> <!-- Icône -->
+                            Ajouter media<!-- Texte du lien -->
+                        </a>
+                    </li>
+
                    @can('list email')
                     <!-- Element de navigation : Liste des Emails -->
                     <li class="nav-item mb-2">
