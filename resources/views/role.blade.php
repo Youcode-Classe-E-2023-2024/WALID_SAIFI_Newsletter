@@ -20,10 +20,10 @@
     @endif
 
 
-    <div class="flex justify-start mb-4">
+  <!--  <div class="flex justify-start mb-4">
 
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Ajouter Role</button>
-    </div>
+    </div>-->
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-black dark:bg-gray-600 " style="width: 700px;">
         <table class="w-full text-sm text-left rtl:text-right text-white dark:text-gray-400">
@@ -39,7 +39,6 @@
                     <td class="px-6 py-4">{{ $role->name }}</td>
                     <td class="px-6 py-4 flex flex-col">
                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mb-2">Modifier</a>
-                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Supprimer</a>
                     </td>
                 </tr>
             @endforeach
