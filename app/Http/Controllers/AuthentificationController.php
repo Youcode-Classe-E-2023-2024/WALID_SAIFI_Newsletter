@@ -11,6 +11,8 @@ use Illuminate\Validation\ValidationException;
 
 class AuthentificationController extends Controller
 {
+
+
     public function pageregister()
     {
         return view('register');
@@ -24,8 +26,9 @@ class AuthentificationController extends Controller
     public function registerSave(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required|confirmed', // Utilisation de la règle "confirmed" pour vérifier la confirmation du mot de passe
+            'username' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed'
         ]);
 
 
@@ -34,6 +37,7 @@ class AuthentificationController extends Controller
         }
 
         $user = new User;
+        $user->name = $request->username;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
@@ -75,6 +79,11 @@ class AuthentificationController extends Controller
     public function update(Request $request, string $id)
     {
 
+    }
+
+    public  function  index(){
+        $user = User::all();
+        return view('affiche_user',['user' => $user]);
     }
 
 
